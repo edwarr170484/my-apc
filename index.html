@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Custom Confirm Box</title>
+    <link rel="stylesheet" href="myAPC.css" />
+    <script src="myAPC.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <h1>Hello, world!</h1>
+    <button id="myButton" onclick="item.delete()">Click here</button>
+
+    <script>
+        let popup = new Alert({
+            confirmButton: {
+                el: document.createElement("button"),
+                classes: ["btn", "green"],
+                text: "Ok"
+            }
+        });
+
+        let item = {
+            async delete() {
+                if (await popup.show("Example confirm")) {
+                    console.log('Confirmed');
+                }
+                else {
+                    console.log('Canceled');
+                }
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
